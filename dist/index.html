@@ -9,6 +9,33 @@
   <script defer src="main.js"></script>
 </head>
 <body>
-  
+  <h1>Weather APP</h1>
+  <div class="city-search">
+    <form>
+      <div class="city-search__form-control">
+        <input type="text" id="city-search" placeholder="city" class="city-search__input">
+        <button type="submit" class="city-search__btn">Search</button>
+      </div>
+    </form>
+  </div>
+  <div class="weather-details">
+    <div class="temperature">
+      <div class="toggle-temp">
+        <input type="checkbox" id="temp">
+        <!-- <label for="temp"><sup>o</sup>C</label> -->
+        <label for="temp">°C</label>
+      </div>
+      <p class="active-temp">90°C</p>
+      <!-- <p class="active-temp">90<sup>o</sup>C</p> -->
+    </div>
+    <div class="details">
+      <p class="current-date">Date: 19/05/2021</p>
+      <h2>Kampala, Uganda</h2>
+      <p>Feels like 90°C</p>
+      <p>Humidity: 20</p>
+      <p>Wind Speed: 100 m/s</p>
+      <p>Visibility: 10.0km</p>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --light-color: #fff;
+  --margin-gap: 2rem;
+  --minimum-height: 50vh;
+  --custome-font-size: 1.2rem;
+  --my-color: rgb(14, 151, 14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: url("../images/weather-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: border-box;
+
+  display: grid;
+  grid-gap: var(--margin-gap);
+  grid:
+    "title title title" auto
+    ". city ." auto
+    ". weather-container ." auto /
+    1fr minmax(320px, 768px) 1fr;
+}
+
+h1 {
+  grid-area: title;
+  color: var(--light-color);
+  text-align: center;
+  margin-top: var(--margin-gap);
+  font-size: 3rem;
+}
+
+h2 {
+  margin: 1.5rem 0;
+}
+
+.city-search {
+  grid-area: city;
+  margin-left: auto;
+
+  &__input {
+    padding: 0.5rem;
+    border: 0;
+    outline: 0;
+    font-size: var(--custome-font-size);
+  }
+
+  &__input::placeholder {
+    opacity: 0.5;
+  }
+
+  &__btn {
+    display: inline-block;
+    border: 0;
+    margin-left: -8px;
+    padding: 0.5rem 1rem;
+    outline: 0;
+    font-size: var(--custome-font-size);
+    cursor: pointer;
+  }
+}
+
+.weather-details {
+  grid-area: weather-container;
+  min-height: var(--minimum-height);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: var(--light-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperature {
+  width: 40%;
+  padding: var(--margin-gap);
+}
+
+.toggle-temp {
+  background-color: var(--my-color);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  border-radius: 50%;
+  font-weight: 500;
+  margin: auto;
+}
+
+.toggle-temp input {
+  cursor: pointer;
+  opacity: 0.1;
+}
+
+.toggle-temp label {
+  cursor: pointer;
+}
+
+.active-temp {
+  font-size: 80px;
+  font-weight: 700;
+  margin: var(--margin-gap) auto;
+}
+
+.details {
+  font-size: var(--custome-font-size);
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid gray;
+  margin: 4rem auto;
+}
+
+.details p {
+  margin: 0.8rem 0;
+  font-size: var(--custome-font-size);
+  font-weight: 600;
+}
+
+.current-date {
+  color: rgb(231, 90, 90);
+}
