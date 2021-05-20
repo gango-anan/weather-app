@@ -3,6 +3,8 @@ const renderWeatherData = (() => {
   const tempLabel = document.querySelector('.temp-label');
   const activeTemp = document.querySelector('.active-temp');
   const checkBox = document.getElementById('temp');
+  const weatherIconContainer = document.querySelector('.weather-icon');
+  const errorContainerElement = document.querySelector('.city-search__error');
   const nowDate = new Date();
 
   const convertToC = (temp) => {
@@ -31,6 +33,7 @@ const renderWeatherData = (() => {
 
   const displayDetails = (weatherData ) => {
     weatherData.then(data => {
+      errorContainerElement.innerText = ''
       tempLabel.innerText = `${tempType()}`;
       activeTemp.innerText = `${displayedTemp(data.temperature)}${tempType()}`;
       weatherDetailsContainer.innerHTML = `
@@ -40,6 +43,7 @@ const renderWeatherData = (() => {
       <p>Humidity: ${data.humidity}%</p>
       <p>Wind Speed: ${data.windSpeed} m/s</p>
       <p>Visibility: ${ convertVisibility(data.visibility) } km</p>`;
+      weatherIconContainer.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.icon}@2x.png" alt="weather-icon"></img>`;
     })
   }
 

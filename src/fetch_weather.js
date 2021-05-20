@@ -1,4 +1,10 @@
 const apiDataModule = (() => {
+  const errorContainer = document.querySelector('.city-search__error');
+
+  const displayError = () => {
+    errorContainer.innerText = 'Invalid city.'
+  }
+
   const generateObject = (data) => {
     return {
       temperature: data.main.temp,
@@ -14,12 +20,12 @@ const apiDataModule = (() => {
    const getData = async (city, utilityKey) => {
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${utilityKey}`, {
-        mode: 'cors',
+        mode: 'cors'
       });
       const data = await response.json();
       return generateObject(data);
     } catch (e) {
-      return setTimeout(console.log('invalid city'), 200);
+      return setTimeout(displayError, 200);
     }
   };
 
