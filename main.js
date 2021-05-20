@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ utilitiesModule)\n/* harmony export */ });\nconst utilitiesModule = (() => {\r\n   const getAndRenderCurrentDate = (dateContainer) => {\r\n    const now_date = new Date();\r\n    dateContainer.innerText = `${now_date.toLocaleTimeString()} , ${now_date.toDateString()}`\r\n  };\r\n\r\n  return { getAndRenderCurrentDate }\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/utilities.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ utilitiesModule)\n/* harmony export */ });\nconst utilitiesModule = (() => {\r\n  const utilityKey = () => {\r\n    const apiKeyValue = 'af42f1d1d1cde88bd430cbdaf2d5e6cd';\r\n  \r\n    return { apiKey: apiKeyValue };\r\n  };\r\n  \r\n  const getAndRenderCurrentDate = (dateContainer) => {\r\n    const now_date = new Date();\r\n    dateContainer.innerText = `${now_date.toLocaleTimeString()} , ${now_date.toDateString()}`\r\n  };\r\n\r\n  return { utilityKey, getAndRenderCurrentDate }\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/utilities.js?");
 
 /***/ })
 
