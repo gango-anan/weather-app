@@ -2,25 +2,23 @@ const apiDataModule = (() => {
   const errorContainer = document.querySelector('.city-search__error');
 
   const displayError = () => {
-    errorContainer.innerText = 'Invalid city.'
-  }
-
-  const generateObject = (data) => {
-    return {
-      temperature: data.main.temp,
-      visibility: data.visibility,
-       humidity: data.main.humidity,
-      windSpeed: data.wind.speed,
-       city: data.name,
-       country: data.sys.country,
-       icon: data.weather[0].icon
-    };
+    errorContainer.innerText = 'Invalid city.';
   };
 
-   const getData = async (city, utilityKey) => {
+  const generateObject = (data) => ({
+    temperature: data.main.temp,
+    visibility: data.visibility,
+    humidity: data.main.humidity,
+    windSpeed: data.wind.speed,
+    city: data.name,
+    country: data.sys.country,
+    icon: data.weather[0].icon,
+  });
+
+  const getData = async (city, utilityKey) => {
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${utilityKey}`, {
-        mode: 'cors'
+        mode: 'cors',
       });
       const data = await response.json();
       return generateObject(data);
@@ -30,7 +28,6 @@ const apiDataModule = (() => {
   };
 
   return { getData };
-
 })();
 
 export { apiDataModule as default };

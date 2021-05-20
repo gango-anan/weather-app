@@ -8,29 +8,27 @@ const tempToggler = document.getElementById('temp');
 const tempTogglerLabel = document.querySelector('.temp-label');
 const errorContainerElement = document.querySelector('.city-search__error');
 const utilityKey = utilitiesModule.utilityKey().apiKey;
-let city = 'kampala'
+let city = 'kampala';
 let weatherData = apiDataModule.getData(city, utilityKey);
 
 const toggleTemperature = () => {
-  if(tempToggler.checked) {
+  if (tempToggler.checked) {
     renderWeatherData.displayDetails(weatherData);
-  }else{
+  } else {
     renderWeatherData.displayDetails(weatherData);
   }
 };
 
-tempTogglerLabel.addEventListener('click', () => setTimeout(toggleTemperature, 10))
-cityForm.addEventListener('submit', event => {
+tempTogglerLabel.addEventListener('click', () => setTimeout(toggleTemperature, 10));
+cityForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  city = cityFormInput.value
-  if (city =='' || city == null) {
-    errorContainerElement.innerText = 'Invalid city.'
-    return
+  city = cityFormInput.value;
+  if (city === '' || city === null) {
+    errorContainerElement.innerText = 'Invalid city.';
+    return;
   }
   weatherData = apiDataModule.getData(city, utilityKey);
   renderWeatherData.displayDetails(weatherData);
-  cityFormInput.value = null
-})
+  cityFormInput.value = null;
+});
 renderWeatherData.displayDetails(weatherData);
-
-weatherData.then(data => console.log(data))
