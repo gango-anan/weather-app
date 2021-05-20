@@ -13,13 +13,8 @@ const toggleTemperature = () => {
   }else{
     renderWeatherData.displayDetails(weatherData);
   }
-}
+};
 
-// Event Listeners
-tempTogglerLabel.addEventListener('click', (event) => {
-  setTimeout(toggleTemperature, 10);
-})
-
-
+tempTogglerLabel.addEventListener('click', () => setTimeout(toggleTemperature, 10))
 
 renderWeatherData.displayDetails(weatherData);

@@ -24,18 +24,22 @@ const renderWeatherData = (() => {
     return tempType;
   }
 
+  const displayedTemp = (temp) => {
+    const tempToDisplay = checkBox.checked ? convertToF(temp) : convertToC(temp);
+    return tempToDisplay;
+  }
+
   const displayDetails = (weatherData ) => {
     weatherData.then(data => {
       tempLabel.innerText = `${tempType()}`;
-      activeTemp.innerText = `${convertToC(data.temperature)}${tempType()}`;
+      activeTemp.innerText = `${displayedTemp(data.temperature)}${tempType()}`;
       weatherDetailsContainer.innerHTML = `
       <p class="current-date">${nowDate.toLocaleTimeString()} , ${nowDate.toDateString()}</p>
       <h2>${data.city}, ${data.country}</h2>
-      <p>Feels like ${convertToC(data.temperature)}${tempType()}</p>
+      <p>Feels like ${displayedTemp(data.temperature)}${tempType()}</p>
       <p>Humidity: ${data.humidity}%</p>
       <p>Wind Speed: ${data.windSpeed} m/s</p>
       <p>Visibility: ${ convertVisibility(data.visibility) } km</p>`;
-
     })
   }
 
