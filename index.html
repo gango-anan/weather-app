@@ -11,10 +11,12 @@
 <body>
   <h1>Weather APP</h1>
   <div class="city-search">
-    <form><div class="city-search__form-control">
-        <input type="text" id="city-search" placeholder="city" class="city-search__input">
+    <form>
+      <div class="city-search__form-control">
+        <input type="text" id="city-search" placeholder="enter city" class="city-search__input">
         <button type="submit" class="city-search__btn">Search</button>
       </div>
+      <small class="city-search__error"></small>
     </form>
   </div>
   <div class="weather-details">
@@ -23,6 +25,7 @@
         <input type="checkbox" id="temp">
         <label for="temp" class="temp-label"></label>
       </div>
+      <div class="weather-icon"></div>
       <p class="active-temp"></p>
     </div>
     <div class="details"></div>
