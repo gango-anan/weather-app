@@ -1,5 +1,8 @@
 const renderWeatherData = (() => {
   const weatherDetailsContainer = document.querySelector('.details');
+  const tempLabel = document.querySelector('.temp-label');
+  const activeTemp = document.querySelector('.active-temp');
+  const checkBox = document.getElementById('temp');
   const nowDate = new Date();
 
   const convertToC = (temp) => {
@@ -16,15 +19,22 @@ const renderWeatherData = (() => {
     return Math.round(visibility/1000);
   }
 
+  const tempType = () => {
+    const tempType = checkBox.checked ? '°F' : '°C';
+    return tempType;
+  }
+
   const displayDetails = (weatherData ) => {
     weatherData.then(data => {
+      tempLabel.innerText = `${tempType()}`;
+      activeTemp.innerText = `${convertToC(data.temperature)}${tempType()}`;
       weatherDetailsContainer.innerHTML = `
       <p class="current-date">${nowDate.toLocaleTimeString()} , ${nowDate.toDateString()}</p>
       <h2>${data.city}, ${data.country}</h2>
-      <p>Feels like ${convertToC(data.temperature)}°C</p>
+      <p>Feels like ${convertToC(data.temperature)}${tempType()}</p>
       <p>Humidity: ${data.humidity}%</p>
       <p>Wind Speed: ${data.windSpeed} m/s</p>
-      <p>Visibility: ${ convertVisibility(data.visibility) } km</p>`
+      <p>Visibility: ${ convertVisibility(data.visibility) } km</p>`;
 
     })
   }
