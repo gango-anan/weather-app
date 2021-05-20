@@ -45,6 +45,8 @@ h2 {
 .city-search {
   grid-area: city;
   margin-left: auto;
+  display: flex;
+  justify-content: space-between;
 
   &__input {
     padding: 0.5rem;

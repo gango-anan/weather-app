@@ -10,23 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/fetch_weather.js":
-/*!******************************!*\
-  !*** ./src/fetch_weather.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getWeather)\n/* harmony export */ });\nconst getWeather = (url) => {\r\n  fetch(url)\r\n  .then(response => {\r\n    if (!response.ok) {\r\n      throw Error(response.statusText)\r\n    }\r\n\r\n    return response.json();\r\n  })\r\n  .then(data => console.log(data))\r\n  .catch(error => {\r\n    console.log('City note found.');\r\n  });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/fetch_weather.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _fetch_weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch_weather */ \"./src/fetch_weather.js\");\n\r\n\r\n(0,_fetch_weather__WEBPACK_IMPORTED_MODULE_0__.default)('http://api.openweathermap.org/data/2.5/weather?q=Kampala, ug&APPID=af42f1d1d1cde88bd430cbdaf2d5e6cd');\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities */ \"./src/utilities.js\");\n\r\n\r\nconst dateContainer = document.querySelector('.current-date');\r\nconst utilityKey = _utilities__WEBPACK_IMPORTED_MODULE_0__.default.utilityKey().apiKey;\r\n\r\n_utilities__WEBPACK_IMPORTED_MODULE_0__.default.getAndRenderCurrentDate(dateContainer);\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/utilities.js":
+/*!**************************!*\
+  !*** ./src/utilities.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ utilitiesModule)\n/* harmony export */ });\nconst utilitiesModule = (() => {\r\n   const getAndRenderCurrentDate = (dateContainer) => {\r\n    const now_date = new Date();\r\n    dateContainer.innerText = `${now_date.toLocaleTimeString()} , ${now_date.toDateString()}`\r\n  };\r\n\r\n  return { getAndRenderCurrentDate }\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/utilities.js?");
 
 /***/ })
 
