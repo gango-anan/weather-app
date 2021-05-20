@@ -4,13 +4,8 @@ const utilitiesModule = (() => {
   
     return { apiKey: apiKeyValue };
   };
-  
-  const getAndRenderCurrentDate = (dateContainer) => {
-    const now_date = new Date();
-    dateContainer.innerText = `${now_date.toLocaleTimeString()} , ${now_date.toDateString()}`
-  };
 
-  return { utilityKey, getAndRenderCurrentDate }
+  return { utilityKey }
 })();
 
 

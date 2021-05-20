@@ -10,13 +10,33 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/fetch_weather.js":
+/*!******************************!*\
+  !*** ./src/fetch_weather.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ apiDataModule)\n/* harmony export */ });\nconst apiDataModule = (() => {\r\n  const generateObject = (data) => {\r\n    return {\r\n      temperature: data.main.temp,\r\n      visibility: data.visibility,\r\n       humidity: data.main.humidity,\r\n      windSpeed: data.wind.speed,\r\n       city: data.name,\r\n       country: data.sys.country,\r\n       icon: data.weather[0].icon\r\n    };\r\n  };\r\n\r\n   const getData = async (city, utilityKey) => {\r\n    try {\r\n      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${utilityKey}`, {\r\n        mode: 'cors',\r\n      });\r\n      const data = await response.json();\r\n      return generateObject(data);\r\n    } catch (e) {\r\n      return setTimeout(console.log('invalid city'), 200);\r\n    }\r\n  };\r\n\r\n  return { getData };\r\n\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/fetch_weather.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities */ \"./src/utilities.js\");\n\r\n\r\nconst dateContainer = document.querySelector('.current-date');\r\nconst utilityKey = _utilities__WEBPACK_IMPORTED_MODULE_0__.default.utilityKey().apiKey;\r\n\r\n_utilities__WEBPACK_IMPORTED_MODULE_0__.default.getAndRenderCurrentDate(dateContainer);\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _fetch_weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch_weather */ \"./src/fetch_weather.js\");\n/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities */ \"./src/utilities.js\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./render */ \"./src/render.js\");\n\r\n\r\n\r\n\r\n\r\nconst utilityKey = _utilities__WEBPACK_IMPORTED_MODULE_1__.default.utilityKey().apiKey;\r\nconst weatherData = _fetch_weather__WEBPACK_IMPORTED_MODULE_0__.default.getData('kampala', utilityKey);\r\n\r\n_render__WEBPACK_IMPORTED_MODULE_2__.default.displayDetails(weatherData);\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/render.js":
+/*!***********************!*\
+  !*** ./src/render.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ renderWeatherData)\n/* harmony export */ });\nconst renderWeatherData = (() => {\r\n  const weatherDetailsContainer = document.querySelector('.details');\r\n  const nowDate = new Date();\r\n  const displayDetails = (weatherData ) => {\r\n    weatherData.then(data => {\r\n      weatherDetailsContainer.innerHTML = `\r\n      <p class=\"current-date\">${nowDate.toLocaleTimeString()} , ${nowDate.toDateString()}</p>\r\n      <h2>${data.city}, ${data.country}</h2>\r\n      <p>Feels like ${data.temperature}°C</p>\r\n      <p>Humidity: ${data.humidity}%</p>\r\n      <p>Wind Speed: ${data.windSpeed} m/s</p>\r\n      <p>Visibility: ${data.visibility} km</p>`\r\n\r\n    })\r\n  }\r\n\r\n  return { displayDetails };\r\n})();\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/render.js?");
 
 /***/ }),
 
@@ -26,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ utilitiesModule)\n/* harmony export */ });\nconst utilitiesModule = (() => {\r\n  const utilityKey = () => {\r\n    const apiKeyValue = 'af42f1d1d1cde88bd430cbdaf2d5e6cd';\r\n  \r\n    return { apiKey: apiKeyValue };\r\n  };\r\n  \r\n  const getAndRenderCurrentDate = (dateContainer) => {\r\n    const now_date = new Date();\r\n    dateContainer.innerText = `${now_date.toLocaleTimeString()} , ${now_date.toDateString()}`\r\n  };\r\n\r\n  return { utilityKey, getAndRenderCurrentDate }\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/utilities.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ utilitiesModule)\n/* harmony export */ });\nconst utilitiesModule = (() => {\r\n  const utilityKey = () => {\r\n    const apiKeyValue = 'af42f1d1d1cde88bd430cbdaf2d5e6cd';\r\n  \r\n    return { apiKey: apiKeyValue };\r\n  };\r\n\r\n  return { utilityKey }\r\n})();\r\n\r\n\r\n\n\n//# sourceURL=webpack://weather-app/./src/utilities.js?");
 
 /***/ })
 

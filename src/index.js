@@ -1,8 +1,9 @@
-import utilitiesModule from './utilities'
+import apiDataModule from './fetch_weather';
+import utilitiesModule from './utilities';
+import renderWeatherData from './render';
 
-const dateContainer = document.querySelector('.current-date');
+
 const utilityKey = utilitiesModule.utilityKey().apiKey;
+const weatherData = apiDataModule.getData('kampala', utilityKey);
 
-utilitiesModule.getAndRenderCurrentDate(dateContainer);
-
-
+renderWeatherData.displayDetails(weatherData);

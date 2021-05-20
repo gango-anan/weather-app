@@ -8,8 +8,8 @@ const apiDataModule = (() => {
        city: data.name,
        country: data.sys.country,
        icon: data.weather[0].icon
-    }
-  }
+    };
+  };
 
    const getData = async (city, utilityKey) => {
     try {
@@ -21,9 +21,9 @@ const apiDataModule = (() => {
     } catch (e) {
       return setTimeout(console.log('invalid city'), 200);
     }
-  }
+  };
 
-  return { getData }
+  return { getData };
 
 })();
 
