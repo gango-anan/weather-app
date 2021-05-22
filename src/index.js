@@ -13,7 +13,7 @@ let weatherData = apiDataModule.getData(city, utilityKey);
 
 window.onload = () => {
   renderWeatherData.displayDetails(weatherData);
-}
+};
 
 const toggleTemperature = () => {
   if (tempToggler.checked) {

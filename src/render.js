@@ -1,4 +1,5 @@
 import codeToCountry from './country-code';
+
 const renderWeatherData = (() => {
   const weatherDetailsContainer = document.querySelector('.details');
   const tempLabel = document.querySelector('.temp-label');
