@@ -87,12 +87,15 @@ h2 {
   color: var(--red-color);
 }
 
-.weather-details {
+.weather-focus {
   grid-area: weather-container;
   min-height: var(--minimum-height);
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   color: var(--light-color);
+}
+
+.weather-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,5 +170,15 @@ h2 {
 
 .current-date {
   color: var(--red-color);
+}
+
+.error-page {
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+.error-page.hide {
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */
