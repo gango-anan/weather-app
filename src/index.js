@@ -33,7 +33,7 @@ cityForm.addEventListener('submit', (event) => {
     return;
   }
   weatherFocus.classList.remove('rainy');
-  weatherFocus.classList.remove('cloudy')
+  weatherFocus.classList.remove('cloudy');
   weatherFocus.classList.remove('clear');
   weatherData = apiDataModule.getData(city, utilityKey);
   renderWeatherData.displayDetails(weatherData);
