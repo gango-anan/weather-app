@@ -93,6 +93,8 @@ h2 {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   color: var(--light-color);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .weather-details {
