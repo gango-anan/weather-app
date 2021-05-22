@@ -1,7 +1,8 @@
 # Weather App
+## About
+Weather App is a web application that gives the real-time weather conditions of a selected city in the world, designed using JavaScript with the help of OpenWeatherMap API. The application has the capability to toggle the temperature displayed to either Celsius or Fahrenheit.
 
-
-### Snapshot
+## Snapshot
 ![Snapshot](./dist/images/snapshot.png)
 
 
@@ -12,7 +13,7 @@
 - CSS
 - Webpack
 - npm
-- OpenWeather-API
+- OpenWeatherMap-API
 
 ## Live Demo
 
@@ -62,7 +63,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 - Credit goes to TheOdinProject.
-- OpeanWeather-API
+- OpeanWeatherMap-API
 - FreeCodeCamp
 
 
