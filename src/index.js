@@ -11,6 +11,10 @@ const utilityKey = utilitiesModule.utilityKey().apiKey;
 let city = 'kampala';
 let weatherData = apiDataModule.getData(city, utilityKey);
 
+window.onload = () => {
+  renderWeatherData.displayDetails(weatherData);
+}
+
 const toggleTemperature = () => {
   if (tempToggler.checked) {
     renderWeatherData.displayDetails(weatherData);
@@ -31,4 +35,3 @@ cityForm.addEventListener('submit', (event) => {
   renderWeatherData.displayDetails(weatherData);
   cityFormInput.value = null;
 });
-renderWeatherData.displayDetails(weatherData);
