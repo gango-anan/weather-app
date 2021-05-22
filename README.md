@@ -1,6 +1,6 @@
 # Weather App
 ## About
-Weather App is an application that gives the real-time weather conditions of a selected city in the world, designed using JavaScript with the help of OpenWeatherMap API. The application has the capability to toggle the temperature displayed to either Celsius or Fahrenheit.
+Weather App is a web application that gives the real-time weather conditions of a selected city in the world, designed using JavaScript with the help of OpenWeatherMap API. The application has the capability to toggle the temperature displayed to either Celsius or Fahrenheit.
 
 ## Snapshot
 ![Snapshot](./dist/images/snapshot.png)
