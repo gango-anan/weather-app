@@ -4,7 +4,6 @@ const renderWeatherData = (() => {
   const activeTemp = document.querySelector('.active-temp');
   const checkBox = document.getElementById('temp');
   const weatherIconContainer = document.querySelector('.weather-icon');
-  const errorContainerElement = document.querySelector('.city-search__error');
   const nowDate = new Date();
 
   const convertToC = (temp) => {
@@ -31,7 +30,6 @@ const renderWeatherData = (() => {
 
   const displayDetails = (weatherData) => {
     weatherData.then((data) => {
-      errorContainerElement.innerText = '';
       tempLabel.innerText = `${tempType()}`;
       activeTemp.innerText = `${displayedTemp(data.temperature)}${tempType()}`;
       weatherDetailsContainer.innerHTML = `

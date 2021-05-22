@@ -24,7 +24,7 @@ cityForm.addEventListener('submit', (event) => {
   event.preventDefault();
   city = cityFormInput.value;
   if (city === '' || city === null) {
-    errorContainerElement.innerText = 'Invalid city.';
+    errorContainerElement.innerText = "City can't be blank, try again!";
     return;
   }
   weatherData = apiDataModule.getData(city, utilityKey);

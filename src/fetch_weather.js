@@ -7,6 +7,7 @@ const apiDataModule = (() => {
     weatherDetails.style.display = 'none';
     errorContainer.innerText = 'City not found.';
     errorPage.classList.remove('hide');
+    errorPage.innerHTML = '<h1>404 ERROR</h1><h3>City not found</h3>';
   };
 
   const generateObject = (data) => ({
@@ -25,6 +26,9 @@ const apiDataModule = (() => {
         mode: 'cors',
       });
       const data = await response.json();
+      weatherDetails.style.display = '';
+      errorContainer.innerText = '';
+      errorPage.classList.add('hide');
       return generateObject(data);
     } catch (e) {
       return setTimeout(displayError, 200);
