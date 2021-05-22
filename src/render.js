@@ -20,6 +20,11 @@ const renderWeatherData = (() => {
 
   const convertVisibility = (visibility) => Math.round(visibility / 1000);
 
+  const toTempType = () => {
+    const toTempType = checkBox.checked ? 'To °C' : 'To °F';
+    return toTempType;
+  };
+
   const tempType = () => {
     const tempType = checkBox.checked ? '°F' : '°C';
     return tempType;
@@ -32,7 +37,7 @@ const renderWeatherData = (() => {
 
   const displayDetails = (weatherData) => {
     weatherData.then((data) => {
-      tempLabel.innerText = `${tempType()}`;
+      tempLabel.innerText = `${toTempType()}`;
       activeTemp.innerText = `${displayedTemp(data.temperature)}${tempType()}`;
       weatherDetailsContainer.innerHTML = `
       <p class="current-date">${nowDate.toLocaleTimeString()} , ${nowDate.toDateString()}</p>
