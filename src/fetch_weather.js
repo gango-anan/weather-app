@@ -18,6 +18,7 @@ const apiDataModule = (() => {
     city: data.name,
     country: data.sys.country,
     icon: data.weather[0].icon,
+    status: data.weather[0].main,
   });
 
   const getData = async (city, utilityKey) => {

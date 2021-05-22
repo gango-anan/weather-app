@@ -6,6 +6,7 @@ const renderWeatherData = (() => {
   const activeTemp = document.querySelector('.active-temp');
   const checkBox = document.getElementById('temp');
   const weatherIconContainer = document.querySelector('.weather-icon');
+  const weatherFocus = document.querySelector('.weather-focus');
   const nowDate = new Date();
 
   const convertToC = (temp) => {
@@ -47,6 +48,13 @@ const renderWeatherData = (() => {
       <p>Wind Speed: ${data.windSpeed} m/s</p>
       <p>Visibility: ${convertVisibility(data.visibility)} km</p>`;
       weatherIconContainer.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.icon}@2x.png" alt="weather-icon"></img>`;
+      if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'rain') {
+        weatherFocus.style.backgroundImage = "url('./images/rainy.gif')";
+      } else if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'clouds') {
+        weatherFocus.style.backgroundImage = "url('./images/cloudy.gif')";
+      } else if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'clear') {
+        weatherFocus.style.backgroundImage = "url('./images/clear.gif')";
+      }
     });
   };
 

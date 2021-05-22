@@ -7,6 +7,7 @@ const cityFormInput = document.getElementById('city-search');
 const tempToggler = document.getElementById('temp');
 const tempTogglerLabel = document.querySelector('.temp-label');
 const errorContainerElement = document.querySelector('.city-search__error');
+const weatherFocus = document.querySelector('.weather-focus');
 const utilityKey = utilitiesModule.utilityKey().apiKey;
 let city = 'kampala';
 let weatherData = apiDataModule.getData(city, utilityKey);
@@ -31,6 +32,7 @@ cityForm.addEventListener('submit', (event) => {
     errorContainerElement.innerText = "City can't be blank, try again!";
     return;
   }
+  weatherFocus.style.backgroundImage = '';
   weatherData = apiDataModule.getData(city, utilityKey);
   renderWeatherData.displayDetails(weatherData);
   cityFormInput.value = null;
