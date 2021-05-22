@@ -1,8 +1,12 @@
 const apiDataModule = (() => {
   const errorContainer = document.querySelector('.city-search__error');
+  const errorPage = document.querySelector('.error-page');
+  const weatherDetails = document.querySelector('.weather-details');
 
   const displayError = () => {
-    errorContainer.innerText = 'Invalid city.';
+    weatherDetails.style.display = 'none';
+    errorContainer.innerText = 'City not found.';
+    errorPage.classList.remove('hide');
   };
 
   const generateObject = (data) => ({
