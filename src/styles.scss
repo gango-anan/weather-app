@@ -84,9 +84,25 @@ h2 {
   background-size: cover;
 }
 
+.weather-focus.rainy {
+  background-image: url("../images/rainy.gif");
+}
+
+.weather-focus.cloudy {
+  background-image: url("../images/cloudy.gif");
+}
+
+.weather-focus.clear {
+  background-image: url("../images/clear.gif");
+}
+
 .weather-details {
   display: flex;
   justify-content: space-between;
+}
+
+.weather-details.no-display {
+  display: none;
 }
 
 .temperature {

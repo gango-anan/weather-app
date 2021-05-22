@@ -4,7 +4,7 @@ const apiDataModule = (() => {
   const weatherDetails = document.querySelector('.weather-details');
 
   const displayError = () => {
-    weatherDetails.style.display = 'none';
+    weatherDetails.classList.add('no-display');
     errorContainer.innerText = 'City not found.';
     errorPage.classList.remove('hide');
     errorPage.innerHTML = '<h1>404 ERROR</h1><h3>City not found</h3>';
@@ -27,7 +27,7 @@ const apiDataModule = (() => {
         mode: 'cors',
       });
       const data = await response.json();
-      weatherDetails.style.display = '';
+      weatherDetails.classList.remove('no-display');
       errorContainer.innerText = '';
       errorPage.classList.add('hide');
       return generateObject(data);

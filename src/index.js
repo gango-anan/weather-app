@@ -32,7 +32,9 @@ cityForm.addEventListener('submit', (event) => {
     errorContainerElement.innerText = "City can't be blank, try again!";
     return;
   }
-  weatherFocus.style.backgroundImage = '';
+  weatherFocus.classList.remove('rainy');
+  weatherFocus.classList.remove('cloudy')
+  weatherFocus.classList.remove('clear');
   weatherData = apiDataModule.getData(city, utilityKey);
   renderWeatherData.displayDetails(weatherData);
   cityFormInput.value = null;

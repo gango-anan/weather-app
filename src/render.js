@@ -49,11 +49,11 @@ const renderWeatherData = (() => {
       <p>Visibility: ${convertVisibility(data.visibility)} km</p>`;
       weatherIconContainer.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.icon}@2x.png" alt="weather-icon"></img>`;
       if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'rain') {
-        weatherFocus.style.backgroundImage = "url('./images/rainy.gif')";
+        weatherFocus.classList.add('rainy');
       } else if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'clouds') {
-        weatherFocus.style.backgroundImage = "url('./images/cloudy.gif')";
+        weatherFocus.classList.add('cloudy');
       } else if (data.city.toLowerCase() !== 'kampala' && data.status.toLowerCase() === 'clear') {
-        weatherFocus.style.backgroundImage = "url('./images/clear.gif')";
+        weatherFocus.classList.add('clear');
       }
     });
   };
